@@ -244,6 +244,7 @@ li:hover {
     flex-direction: row;
     justify-content: space-around;
     padding: 0px 5px;
+    /* position: absolute; */
     top: 0;
     flex-wrap: wrap;
     gap: 5px;
@@ -284,6 +285,7 @@ li:hover {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    /* justify-content: center; */
     position: absolute;
     top: 75px;
     left: 0;
