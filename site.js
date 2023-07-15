@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     loading.style.display = "none";
     document.querySelector("main.container").style.opacity = "1";
   }, 1000);
+  var searchInput = document.getElementById("search-input");
+  searchInput.addEventListener("input", filtrarFilmesPorNome);
 });
 
 // Função para inserir um blur nas imagem quando um hover for chamado
@@ -57,6 +59,24 @@ function filtrarFilmes() {
   }
 }
 
+function filtrarFilmesPorNome() {
+  var filtro = this.value.toLowerCase();
+  var filmes = document.getElementsByClassName("box");
+
+  for (var i = 0; i < filmes.length; i++) {
+    var filme = filmes[i];
+    var tituloFilme = filme.getElementsByTagName("img")[0].alt.toLowerCase();
+
+    if (tituloFilme.includes(filtro)) {
+      filme.style.display = "block";
+    } else {
+      filme.style.display = "none";
+    }
+  }
+}
+
+// Isso irá adicionar a funcionalidade de filtragem de filmes com base no nome inserido na barra de pesquisa.
+
 function alterarEstiloHover() {
   var generoOpcoes = document
     .getElementById("genero")
@@ -82,6 +102,8 @@ function alterarEstiloHover() {
   }
 }
 
+// Altera o hover das imagens
+
 window.onload = function () {
   alterarEstiloHover();
   var generoOpcoes = document
@@ -103,7 +125,7 @@ window.addEventListener("DOMContentLoaded", function () {
     generoMenu.classList.toggle("open");
     generoMenu.classList.toggle("menu-ativo");
   });
-
+  // Verificar o tamanho da tela
   function verificarTamanhoTela() {
     if (window.innerWidth <= 850) {
       menuHamburguer.style.display = "block";
@@ -133,10 +155,14 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// Abrir Popup do filme
+
 function abrirPopup(link) {
   var popup = window.open(link, "popup", "width=800,height=600");
   popup.focus();
 }
+
+// Cria o frame do
 function criarIframe(link, thumbUrl) {
   var div = document.createElement("div");
   div.classList.add("popup");
