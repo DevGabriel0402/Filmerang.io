@@ -130,9 +130,12 @@ li:hover {
 
 .container {
   padding-top: 40px;
+
+  margin: 45px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 0;
+  justify-content: start;
 }
 
 .box {
@@ -185,15 +188,24 @@ li:hover {
 
 .menu-hamburguer span {
   display: block;
+  border-radius: 10px;
   width: 30px;
-  height: 4px;
+  height: 5px;
   margin-bottom: 5px;
   background-color: var(--font-color);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.5s ease;
+}
+.menu-hamburguer span:nth-child(1) {
+  width: 35px;
+}
+.menu-hamburguer span:nth-child(3) {
+  width: 35px;
 }
 
 .menu-hamburguer.open span:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
+  transform: rotate(45deg) translate(6px, 6px);
+  background-color: rgb(245, 240, 240);
+  width: 30px;
 }
 
 .menu-hamburguer.open span:nth-child(2) {
@@ -201,7 +213,10 @@ li:hover {
 }
 
 .menu-hamburguer.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(8px, -8px);
+  background-color: rgb(245, 240, 240);
+
+  width: 30px;
 }
 
 /* CSS Popup */
@@ -239,26 +254,38 @@ li:hover {
   cursor: pointer;
 }
 
+footer {
+  width: 100%;
+  height: 30px;
+  margin-top: 40vh;
+  color: var(--bg-color);
+  font-size: 16px;
+  background-color: var(--font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 849px) {
   header {
     flex-direction: row;
     justify-content: space-around;
-    padding: 0px 5px;
-    /* position: absolute; */
-    top: 0;
+    padding: 5px 0;
     flex-wrap: wrap;
     gap: 5px;
     height: 25px;
     margin-bottom: 15px;
   }
   header.transparente {
-    background-color: transparent;
+    background-color: var(--bg-color-mobile);
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+    top: 0;
+    height: auto;
   }
 
   header.transparente img.logo {
-    filter: brightness(0) invert(1);
+    filter: brightness(1) invert(0);
     background: transparent;
   }
 
@@ -285,16 +312,16 @@ li:hover {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    /* justify-content: center; */
-    position: absolute;
-    top: 75px;
+    position: static;
+    top: 50px;
     left: 0;
     width: 100%;
-    height: calc(100vh - auto);
+    height: calc(100vh - 400px);
     background-color: var(--bg-color-mobile);
     z-index: 10;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
   }
 
   ul#genero.menu-ativo li {
@@ -304,6 +331,8 @@ li:hover {
   }
   .container {
     margin-top: 5px;
+    margin: 0;
+    justify-content: center;
   }
   .popup iframe {
     width: 70%;
