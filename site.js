@@ -41,6 +41,22 @@ thumbs.forEach((thumb) => {
   });
 });
 
+// Função para fixar o header nav
+
+window.addEventListener("scroll", function () {
+  var header = document.querySelector("header");
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrollTop >= 10 && window.innerWidth <= 850) {
+    header.classList.add("transparent");
+    header.style.position = "fixed";
+    header.style.top = "0";
+  } else {
+    header.classList.remove("transparent");
+    header.style.position = "static";
+  }
+});
+
 // Filtrar pela Categoria de Filmes
 
 function filtrarFilmes() {
